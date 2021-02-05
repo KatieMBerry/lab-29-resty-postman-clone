@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AllHistory component renders AllHistory 1`] = `
+<DocumentFragment>
+  <div>
+    <h6 />
+    <p />
+  </div>
+</DocumentFragment>
+`;
