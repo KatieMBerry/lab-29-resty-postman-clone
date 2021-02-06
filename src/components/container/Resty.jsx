@@ -7,7 +7,7 @@ export default class Resty extends Component {
     //     selectedMethod: '',
     //     requestBody: {},
     //     responseBody: {},
-    //     historyArray: []
+    //     historyList: []
     // }
 
 }
