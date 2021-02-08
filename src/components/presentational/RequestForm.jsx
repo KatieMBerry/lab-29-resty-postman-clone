@@ -11,37 +11,43 @@ const RequestForm = ({ urlInput, selectedMethod, requestBody, onSubmit, onChange
                 value={urlInput}
                 onChange={onChange} />
 
-            <label>GET</label>
-            <input type="radio"
-                name="method"
-                value="GET"
-                onChange={onChange}
-                checked={selectedMethod === 'GET'} />
+            <div>
+                <label htmlFor="GET">GET</label>
+                <input type="radio"
+                    id="GET"
+                    name="method"
+                    value="GET"
+                    onChange={onChange}
+                    checked={selectedMethod === 'GET'} />
 
-            <label>POST</label>
-            <input type="radio"
-                name="method"
-                value="POST"
-                onChange={onChange}
-                checked={selectedMethod === 'POST'} />
+                <label htmlFor="POST">POST</label>
+                <input type="radio"
+                    id="GET"
+                    name="method"
+                    value="POST"
+                    onChange={onChange}
+                    checked={selectedMethod === 'POST'} />
 
-            <label>PUT</label>
-            <input type="radio"
-                name="method"
-                value="PUT"
-                onChange={onChange}
-                checked={selectedMethod === 'PUT'} />
+                <label htmlFor="PUT">PUT</label>
+                <input type="radio"
+                    id="PUT"
+                    name="method"
+                    value="PUT"
+                    onChange={onChange}
+                    checked={selectedMethod === 'PUT'} />
 
-            <label>DELETE</label>
-            <input type="radio"
-                name="method"
-                value="DELETE"
-                onChange={onChange}
-                checked={selectedMethod === 'DELETE'} />
-
-            <button>GO</button>
+                <label htmlFor="DELETE">DELETE</label>
+                <input type="radio"
+                    id="DELETE"
+                    name="method"
+                    value="DELETE"
+                    onChange={onChange}
+                    checked={selectedMethod === 'DELETE'} />
+            </div>
+            <button>Fetch API</button>
 
             <textarea placeholder="Raw JSON"
+                name="request body"
                 value={requestBody}
                 onChange={onChange}></textarea>
         </form>
