@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactJson from 'react-json-view';
+import styles from './ResponseDisplay.css';
 
 const ResponseDisplay = ({ display }) => (
-    <pre>
+    <pre className={styles.ResponseDisplay}>
         <ReactJson src={display} theme="monokai" />
     </pre>
 );

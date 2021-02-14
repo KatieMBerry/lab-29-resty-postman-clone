@@ -1,7 +1,80 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ResponseDisplay component renders ResponseDisplay 1`] = `
+exports[`Resty component renders Resty 1`] = `
 <DocumentFragment>
+  <div>
+    <h6 />
+    <p />
+  </div>
+  <header>
+    RESTY
+  </header>
+  <section>
+    <form
+      class="RequestForm"
+    >
+      <input
+        id="url"
+        name="url"
+        placeholder="url"
+        type="text"
+      />
+      <div>
+        <input
+          id="GET"
+          name="method"
+          type="radio"
+          value="GET"
+        />
+        <label
+          for="GET"
+        >
+          GET
+        </label>
+        <input
+          id="POST"
+          name="method"
+          type="radio"
+          value="POST"
+        />
+        <label
+          for="POST"
+        >
+          POST
+        </label>
+        <input
+          id="PUT"
+          name="method"
+          type="radio"
+          value="PUT"
+        />
+        <label
+          for="PUT"
+        >
+          PUT
+        </label>
+        <input
+          id="DELETE"
+          name="method"
+          type="radio"
+          value="DELETE"
+        />
+        <label
+          for="DELETE"
+        >
+          DELETE
+        </label>
+      </div>
+      <button>
+        Fetch API
+      </button>
+      <textarea
+        id="request"
+        placeholder="Raw JSON"
+        type="text"
+      />
+    </form>
+  </section>
   <pre
     class="ResponseDisplay"
   >
@@ -69,7 +142,7 @@ exports[`ResponseDisplay component renders ResponseDisplay 1`] = `
                 <span
                   style="display: inline-block; cursor: pointer; font-weight: bold; color: rgb(249, 248, 245);"
                 >
-                  {
+                  [
                 </span>
               </span>
             </span>
@@ -79,7 +152,7 @@ exports[`ResponseDisplay component renders ResponseDisplay 1`] = `
               <span
                 style="display: inline-block; cursor: pointer; font-weight: bold; color: rgb(249, 248, 245); padding-left: 0px;"
               >
-                }
+                ]
               </span>
               <div
                 class="object-meta-data"
