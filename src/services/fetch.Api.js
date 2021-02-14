@@ -1,11 +1,16 @@
-export const fetchApi = (urlInput, selectedMethod, responseBody) => {
+global.fetch = require('node-fetch');
+
+export const fetchApi = async (urlInput, selectedMethod, responseBody) => {
     if (selectedMethod !== 'GET') {
-        return fetch(urlInput, {
-            selectedMethod,
-            responseBody
-        })
+        return await fetch(`${urlInput}`,
+            {
+                selectedMethod: `${selectedMethod}`
+            })
             .then(res => res.json());
     }
-    return fetch(urlInput)
+    return await fetch(`${urlInput}`, {
+        selectedMethod: `${selectedMethod}`,
+        responseBody: `${responseBody}`
+    })
         .then(res => res.json());
 };

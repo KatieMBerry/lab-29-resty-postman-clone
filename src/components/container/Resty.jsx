@@ -4,62 +4,54 @@ import ResponseDisplay from '../../components/presentational/ResponseDisplay';
 import AllHistory from '../../components/presentational/history/AllHistory';
 import { fetchApi } from '../../services/fetch.Api';
 
+
 export default class Resty extends Component {
 
     state = {
         urlInput: '',
         selectedMethod: '',
-        requestBody: '',
-        display: {},
+        requestBody: [],
+        display: [],
         historyArray: []
     }
 
-    componentDidMount() {
-        const historyStorage = JSON.parse(localStorage.getItem('historyArray'));
-
-        if (historyStorage) {
-            this.setState({ historyArray: historyStorage });
-        }
+    handleUrlChange = ({ target }) => {
+        this.setState({ urlInput: target.value });
     }
 
-    handleChange = ({ target }) => {
-        this.setState({ [target.name]: target.value });
+    handleMethodChange = ({ target }) => {
+        this.setState({ selectedMethod: target.value });
+    }
+
+    handleRequestChange = ({ target }) => {
+        this.setState({ requestBody: target.value });
     }
 
     handleSubmit = e => {
-        const { urlInput, selectedMethod } = this.state;
         e.preventDefault();
-        this.fetchApi();
-    }
-
-    handleClick = e => {
-        const { id } = e.target;
-        let result;
-
-        this.setState({
-            urlInput: result.urlInput,
-            selectedMethod: result.selectedMethod,
-            requestBody: result.requestBody
-        });
-    }
-
-    fetchApi = () => {
         const { urlInput, selectedMethod, requestBody } = this.state;
-        return fetchApi(urlInput, selectedMethod, requestBody)
-            .then(res => this.setState({ display: res }));
+
+        fetchApi(urlInput, selectedMethod, requestBody)
+            .then(display => this.setState({ display }));
+
+        const newRequest = {
+            urlInput: this.state.urlInput,
+            selectedMethod: this.state.selectedMethod
+        };
+        this.state.historyArray.push(newRequest);
     }
 
     render() {
-        const { urlInput, selectedMethod, display, requestBody, historyArray } = this.state;
+        const { display, historyArray } = this.state;
 
         return (
             <>
+                <AllHistory historyArray={historyArray} />
                 <RequestForm
-                    urlInput={urlInput}
-                    selectedMethod={selectedMethod}
-                    requestBody={requestBody}
-                    onChange={this.handleChange}
-                    onSubmit={this.handleSubmit} />
+                    handleUrlChange={this.handleUrlChange}
+                    handleMethodChange={this.handleMethodChange}
+                    handleRequestChange={this.handleRequestChange}
+                    handleSubmit={this.handleSubmit} />
                 <ResponseDisplay display={display} />
             </>
         )
